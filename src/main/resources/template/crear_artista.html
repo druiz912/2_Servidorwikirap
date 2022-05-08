@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Añadir nuevo artista</title>
+	<style>
+				header {
+			background-color: #B8D3F2;
+			text-align: center;
+			width: 100%;
+			height: 74px;
+			display: grid;
+		}
+
+		h1 {
+			font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+			letter-spacing: 1px;
+		}
+
+		div {
+			display: inline-flex;
+			margin: 10px 0px 1px 200px;
+			width: 76%;
+			height: auto;			
+		}
+
+		table {
+			width: 100%;
+			text-align: center;
+			border: 5px solid black;
+		}
+
+		tr th {
+			border-bottom: 3px solid black;
+
+			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+		}
+
+		
+		tr td {
+			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+		}
+
+		/* IDENTIFICADOR, NOMBRE E IMAGEN */
+		th:nth-child(1n+1) {
+			background-color: #8A84E2;
+		}
+
+		/* Fila 1, Fila 3 */
+		tr:nth-child(2n+0) {
+			background-color: #AFAFDC;
+		}
+
+		tr:hover:nth-child(1n+0) {
+			background-color: #B8D3F2;
+		}
+
+		/* FORMULARIO */
+		.formulario {
+			display: inline-flex;
+   			width: 52%;
+    		margin-left: 25%;
+   
+
+			border: 5px solid black;
+			background-color: #8A84E2;
+		}	
+		
+		form {
+			margin: 0px 5px 0px 239px; /* Centramos */
+			width: 58%; /* Sin ancho no podemos centrar el formulario */
+		
+			
+		}
+		form input {
+			display: grid;
+			padding: 5px; /* separamos los bordes del form del resto de elementos */
+			border-radius: 6px; /* Redondeamos los bordes del form */
+			height: 30px;    
+			margin-top: 3px;
+ 		}
+
+		 form input:hover {
+			background-color: #B8D3F2
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>TABLA DE ARTISTAS</h1>
+	</header>
+	<div>
+		<thead>
+			<table>
+				<tr>
+					<th>IDENTIFICADOR</th>
+					<th>NOMBRE ARTÍSTICO</th>
+					<th>NOMBRE DE NACIMIENTO</th>
+					<th>IMAGEN</th>
+					<th>FECHA DE NACIMIENTO</th>
+					<th>EDAD</th>
+					<th>SEXO</th>
+					<th>NACIONALIDAD</th>
+					<th>DETALLES</th>
+				</tr>
+				<tr th:each="artist: ${Artistas}">
+					<td th:text="${artist.id}"></td>
+					<td th:text="${artist.nombreartistico}"></td>
+					<td th:text="${artist.nombreNacimiento}"></td>
+					<td>
+						<img th:src="${artist.imagen}" width='100px'>
+					</td>
+					<td th:text="${artist.fechaNacimiento}"></td>
+					<td th:text="${artist.edad}"></td>
+					<td th:text="${artist.sexo}"></td>
+					<td th:text="${artist.nacionalidad}"></td>
+					<td th:text="${artist.detalles}"></td>
+					
+				</tr>
+			</table>
+		</thead>
+	</div>
+	<div class="formulario">
+		<form method="get" action="/addArtista">
+			<!-- action debe coincidir con el controlador  -->
+			<input type="text" name="nombreartistico" placeholder="Nombre artístico">
+			<input type="text" name="nombreNacimiento" placeholder="Nombre de nacimiento">
+			<input type="text" name="imagen" placeholder="URL de la imagen">
+			<input type="text" name="fechaNacimiento" placeholder="Fecha de nacimiento">
+			<input type="text" name="edad" placeholder="Edad">
+			<input type="text" name="sexo" placeholder="Género">
+			<input type="text" name="nacionalidad" placeholder="Lugar donde nació">
+			<input type="text" name="detalles" placeholder="Más información">
+			<input type="submit" value="Enviar">
+		</form>
+	</div>
+	<div>
+		<a href="http://localhost:8080/"><button id="inicio">Atrás</button></a>
+	</div>
+</body>
+
+</html>

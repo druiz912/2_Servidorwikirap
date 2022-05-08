@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WIKIRAP - ADMINISTRACIÓN</title>
+<style>
+header {
+	background-color: #B8D3F2;
+	text-align: center;
+	width: 100%;
+	height: 74px;
+	display: grid;
+	font-family: fantasy;
+	letter-spacing: 12px;
+}
+
+div {
+	display: inline-flex;
+	margin: 1px 1px 1px 150px;
+	width: 76%;
+	height: 135px;
+}
+
+table {
+	width: 100%;
+	text-align: center;
+	border: 5px solid black;
+	background-color: lightsteelblue;
+}
+
+tr th {
+	border-bottom: 3px solid black;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+		sans-serif;
+}
+
+tr td {
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+		sans-serif;
+}
+
+button {
+	stroke-linecap: butt;
+	border: 5px solid black;
+	padding: 16px;
+	background-color: #f1efef;
+}
+
+button:hover {
+	background-color: #ffffff;
+}
+}
+</style>
+</head>
+
+<body>
+	<header>
+		<h1>ADMINISTRACIÓN</h1>
+	</header>
+
+	<div class="contenedor1">
+		<table>
+			<th><a href="/addArtista"><button id="bArtistas">Añadir
+						artistas a la BBDD</button></a></th>
+			<th><a href="/addDiscos"><button id="bDiscos">Añadir
+						discos a la BBDD</button></a></th>
+			<th><a href="http://localhost:4200/"><button>Ir al cliente</button></a></th>
+
+		</table>
+	</div>
+
+</body>
+
+</html>
